@@ -1,0 +1,45 @@
+.TH SIMPLE_SHELL 1 "JANUARY 2024" "Shell" "Holberton School"
+.SH NAME
+simple_shell \- Interpréteur de ligne de commande (hsh)
+.SH SYNOPSIS
+.B ./hsh
+.SH DESCRIPTION
+.B simple_shell
+est une réplique simplifiée du Thompson Shell. Il lit les commandes depuis l'entrée standard (stdin) et tente de les exécuter sur le système.
+.PP
+Le cycle de fonctionnement est le suivant :
+.IP 1.
+Affichage d'un prompt ($) si le shell est en mode interactif.
+.IP 2.
+Lecture de la ligne de commande via la fonction \fBgetline\fP.
+.IP 3.
+Découpage de la chaîne en jetons (tokens) à l'aide de \fBstrtok\fP.
+.IP 4.
+Création d'un processus enfant via \fBfork\fP.
+.IP 5.
+Exécution de la commande dans l'enfant avec \fBexecve\fP.
+.IP 6.
+Le parent attend la fin de l'exécution avec \fBwait\fP avant de recommencer la boucle.
+
+.SH MODES
+.TP
+.B Interactif
+Lorsque le shell est connecté à un terminal (ex: ./hsh), il affiche le prompt ($) avant chaque lecture.
+.TP
+.B Non-interactif
+Si le shell reçoit des commandes via un pipe (ex: echo "/bin/ls" | ./hsh), il exécute les commandes sans afficher de prompt.
+
+.SH EXEMPLES
+.IP "Utilisation basique :"
+($) /bin/ls
+.IP "Avec arguments :"
+($) /bin/ls -l /tmp
+
+.SH SORTIE
+Pour quitter le shell, utilisez \fBexit\fP ou envoyez le signal \fBEOF\fP (Ctrl+D).
+
+.SH AUTEURS
+Développé par Thomas dans le cadre du projet Simple Shell d'Holberton School.
+
+.SH VOIR AUSSI
+sh(1), fork(2), execve(2), wait(2), strtok(3)

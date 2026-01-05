@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * execute_command - Forks a process and executes a command
- * @args: Table of arguments
- * @env: Environment variables
+ * execute_command - Crée un processus et exécute une commande
+ * @args: Tableau d'arguments
+ * @env: Variables d'environnement
  */
 void execute_command(char **args, char **env)
 {
