@@ -1,4 +1,3 @@
-cat > README.md << 'EOF'
 # Simple Shell
 
 Il s'agit d'un interpréteur de commandes UNIX simple écrit en langage C. Ce projet est une étape fondamentale pour comprendre le fonctionnement des processus, des appels système (system calls), de la gestion de mémoire et de l'environnement sous Linux.
