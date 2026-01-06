@@ -1,0 +1,100 @@
+.TH HSH 1 "January 2026" "hsh 1.0" "User Commands"
+.SH NAME
+hsh \- Simple UNIX command interpreter
+.SH SYNOPSIS
+.B ./hsh
+.SH DESCRIPTION
+.B hsh
+is a simple UNIX command language interpreter that reads commands from either standard input or from a file. It is designed to emulate the basic functionality of the \fBsh\fR shell.
+
+Upon startup, the \fBhsh\fR shell looks for commands in the directories specified by the \fBPATH\fR environment variable, or accepts absolute/relative paths to executables.
+
+.SH INVOCATION
+.B hsh
+can be invoked in two modes:
+
+.B Interactive Mode:
+.br
+When \fBhsh\fR is invoked without arguments and standard input is connected to a terminal, it enters interactive mode. It displays the prompt \fB($) \fR and waits for a user command.
+.br
+Example:
+.br
+.sp
+.B ($) /bin/ls
+.br
+hsh main.c shell.c
+
+.B Non-interactive Mode:
+.br
+When \fBhsh\fR is invoked with standard input connected to a pipe or file, or (optionally) with a file argument, it runs in non-interactive mode. No prompt is displayed, and commands are executed line by line until \fBEOF\fR is reached.
+.br
+Example:
+.br
+.sp
+.B echo "/bin/ls" | ./hsh
+.br
+hsh main.c shell.c
+
+.SH ENVIRONMENT
+The shell uses the \fBPATH\fR environment variable to locate commands that are not entered as absolute or relative paths.
+
+.SH BUILT-IN COMMANDS
+The following commands are built into the shell:
+
+.TP
+.B exit
+Exits the shell.
+
+.TP
+.B env
+Prints the current environment variables.
+
+.TP
+.B cd [directory]
+Changes the current working directory to the directory specified. If no directory is specified, the behavior depends on implementation (often changes to HOME).
+(Note: Included based on the presence of \fBchdir\fR in allowed functions).
+
+.SH ERROR HANDLING
+If an executable cannot be found or executed, \fBhsh\fR prints an error message to standard error (stderr). The error format mimics \fB/bin/sh\fR:
+
+.B ./hsh: 1: command_name: not found
+
+Where:
+.RS
+.IP \(bu 2
+\fB./hsh\fR is the name of the shell (argv[0]).
+.IP \(bu 2
+\fB1\fR is the line number.
+.IP \(bu 2
+\fBcommand_name\fR is the command that failed.
+.RE
+
+.SH RETURN VALUE
+.B hsh
+returns the exit status of the last executed command. If a syntax error occurs, it returns a non-zero status.
+
+.SH EXAMPLES
+.B Interactive usage:
+.sp
+    $ ./hsh
+    ($) /bin/ls -l
+    total 20
+    -rwxr-xr-x 1 user user 18000 Jan 1 12:00 hsh
+    -rw-r--r-- 1 user user   500 Jan 1 12:00 main.c
+    ($) exit
+    $
+
+.B Piping usage:
+.sp
+    $ echo "/bin/ls" | ./hsh
+    hsh main.c
+    $
+
+.SH AUTHORS
+Written by Thomas Haenel and Thélyaan Dufrénoy.
+.SH SEE ALSO
+.BR sh (1),
+.BR bash (1),
+.BR execve (2),
+.BR fork (2),
+.BR wait (2)
