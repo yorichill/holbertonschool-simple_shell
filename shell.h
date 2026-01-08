@@ -11,6 +11,6 @@
 
 /* Prototypes */
 char **split_line(char *line);
-void execute_command(char **args, char **env);
+void execute_command(char **args, char **env, char *prog_name);
 
 #endif
