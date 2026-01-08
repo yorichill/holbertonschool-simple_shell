@@ -31,7 +31,6 @@ void execute_command(char **args, char *prog_name)
 
 	if (child_pid == 0)
 	{
-		/* Utilisation du chemin complet trouvé par get_path */
 		if (execve(full_path, args, environ) == -1)
 		{
 			perror("Error");

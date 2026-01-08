@@ -11,11 +11,9 @@ char *get_path(char *command)
 	struct stat buffer;
 	int i = 0;
 
-	/* Si la commande est déjà un chemin direct (/bin/ls) et existe */
 	if (stat(command, &buffer) == 0)
 		return (strdup(command));
 
-	/* Récupération manuelle du PATH dans environ */
 	path = NULL;
 	while (environ[i])
 	{
