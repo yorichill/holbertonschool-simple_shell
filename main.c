@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * main - Point d'entrée du shell simple
- * @ac: Nombre d'arguments (non utilisé)
- * @av: Vecteur d'arguments (av[0] est le nom du programme)
- * Return: 0 en cas de succès
+ * main - Simple shell entry point
+ * @ac: Number of arguments (not used)
+ * @av: Argument vector (av[0] is the programme name)
+ * Return: 0 if successful
  */
 int main(int ac, char **av)
 {

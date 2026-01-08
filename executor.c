@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * execute_command - Exécute une commande avec gestion du PATH
- * @args: Tableau d'arguments
- * @prog_name: Nom du shell pour les erreurs
+ * execute_command - Executes a command with PATH management
+ * @args: Array of arguments
+ * @prog_name: Name of the shell for errors
  */
 void execute_command(char **args, char *prog_name)
 {

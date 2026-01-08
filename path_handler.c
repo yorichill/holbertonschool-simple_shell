@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * get_path - Cherche l'exécutable dans les répertoires du PATH
- * @command: Nom de la commande (ex: "ls")
- * Return: Chemin complet (ex: "/bin/ls") ou NULL si non trouvé
+ * get_path - Searches for the executable in the PATH directories
+ * @command: Command name (e.g. ‘ls’)
+ * Return: Full path (e.g. ‘/bin/ls’) or NULL if not found
  */
 char *get_path(char *command)
 {

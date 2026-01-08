@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * split_line - Découpe une chaîne en jetons (tokens)
- * @line: La chaîne à découper
- * Return: Tableau de pointeurs vers les jetons
+ * split_line - Splits a string into tokens
+ * @line: The string to be split
+ * Return: Array of pointers to the tokens
  */
 char **split_line(char *line)
 {

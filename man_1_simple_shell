@@ -1,54 +1,53 @@
+```
+
+---
+
+### 2. `man_1_simple_shell` (English Version)
+
 ```roff
-.TH HSH 1 "Mai 2024" "1.0" "Manuel du Simple Shell"
-.SH NOM
+.TH HSH 1 "May 2024" "1.0" "Simple Shell Manual"
+.SH NAME
 .B hsh
-- Interpréteur de commandes UNIX simplifié
+- Simplified UNIX command interpreter
 
 .SH SYNOPSIS
-.B Mode interactif :
+.B Interactive mode:
 .RS
 ./hsh
 .RE
-.B Mode non-interactif :
+.B Non-interactive mode:
 .RS
-echo "[COMMANDE]" | ./hsh
+echo "[COMMAND]" | ./hsh
 .RE
 
 .SH DESCRIPTION
 .B hsh
-est un interpréteur de ligne de commande qui lit des instructions depuis l'entrée standard ou un tube (pipe). Il recherche les commandes dans le PATH actuel, les exécute dans un processus enfant et attend leur fin.
+[cite_start]is a command-line interpreter that reads instructions from standard input or a pipe. [cite: 5, 6] [cite_start]It searches for commands in the current PATH, executes them in a child process, and waits for their completion. [cite: 7]
 
-.SH COMMANDES INTERNES
+.SH BUILT-IN COMMANDS
 .B hsh
-supporte les commandes internes suivantes :
+[cite_start]supports the following built-in commands: [cite: 8]
 .sp
 .B exit
 .RS
-Quitte le shell proprement avec un statut de sortie 0.
+[cite_start]Exits the shell cleanly with an exit status of 0. [cite: 8]
 .RE
 .B env
 .RS
-Affiche toutes les variables d'environnement actuelles.
+[cite_start]Prints all current environment variables. [cite: 8, 9]
 .RE
 
-.SH RECHERCHE DU PATH
-Si une commande ne contient pas de barre oblique (/), le shell cherche l'exécutable dans les répertoires listés dans la variable d'environnement PATH. Si la commande n'est pas trouvée, un message d'erreur est affiché sur la sortie d'erreur standard (stderr).
+.SH PATH SEARCH
+[cite_start]If a command does not contain a forward slash (/), the shell searches for the executable in the directories listed in the PATH environment variable. [cite: 9] [cite_start]If the command is not found, an error message is printed to the standard error output (stderr). [cite: 10]
 
-.SH STATUT DE SORTIE
-Renvoie 0 en cas de succès, et 127 si une commande n'est pas trouvée.
+.SH EXIT STATUS
+[cite_start]Returns 0 upon success, and 127 if a command is not found. [cite: 11]
 
-.SH VOIR AUSSI
-.I sh(1), bash(1)
+.SH SEE ALSO
+[cite_start].I sh(1), bash(1) [cite: 12]
 
-.SH AUTEURS
-Thomas <votre_email>
-Projet réalisé dans le cadre du cursus Holberton School.
+.SH AUTHORS
+Thomas <your_email>
+Project developed as part of the Holberton School curriculum.
 
 ```
-
-### Instructions pour l'utilisation :
-
-1. **README.md** : Enregistrez le texte ci-dessus dans un fichier nommé `README.md` à la racine de ton projet.
-2. **Man Page** : Enregistrez le texte du manuel dans un fichier nommé `man_1_simple_shell`. Pour le tester dans ton terminal, tu peux taper : `man ./man_1_simple_shell`.
-
-**Souhaites-tu que je t'aide à générer le fichier `AUTHORS` au format exact pour terminer ton dépôt ?**

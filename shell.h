@@ -11,7 +11,7 @@
 
 extern char **environ;
 
-/* Prototypes */
+/* all prototypes */
 char **split_line(char *line);
 void execute_command(char **args, char *prog_name);
 char *get_path(char *command);
