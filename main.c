@@ -16,12 +16,12 @@ int main(int ac, char **av)
 
 	while (1)
 	{
-		/* Affiche le prompt uniquement en mode interactif */
+		/* Affiche le prompt ($) uniquement en mode interactif */
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "($) ", 4);
 
 		nread = getline(&line, &len, stdin);
-		if (nread == -1) /* Gestion de "end of file" (Ctrl+D) */
+		if (nread == -1) /* Gestion de Ctrl+D (EOF) */
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
@@ -29,13 +29,16 @@ int main(int ac, char **av)
 			exit(EXIT_SUCCESS);
 		}
 
-		/* Nettoyage du saut de ligne final pour execve */
+		/* Suppression du saut de ligne final pour execve */
 		if (line[nread - 1] == '\n')
 			line[nread - 1] = '\0';
 
 		args = split_line(line);
 		if (args && args[0])
+		{
+			/* Appel de l'exécuteur avec le nom du programme pour les erreurs */
 			execute_command(args, av[0]);
+		}
 
 		free(args);
 	}
