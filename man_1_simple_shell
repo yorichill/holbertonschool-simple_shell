@@ -1,4 +1,6 @@
-.TH SIMPLE_SHELL 1 "JANUARY 2024" "Shell" "Holberton School"
+git add .
+git commit -m "Fix: Rename AUTHORS and ensure correct exit status 127"
+git push.TH SIMPLE_SHELL 1 "JANUARY 2024" "Shell" "Holberton School"
 .SH NAME
 simple_shell \- Interpréteur de ligne de commande (hsh)
 .SH SYNOPSIS
