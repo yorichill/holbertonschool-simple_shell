@@ -72,6 +72,9 @@ $ echo "ls" | ./hsh
 | [executor.c](https://www.google.com/search?q=executor.c) | Gestion du fork, de l'exécution (execve) et du wait. |
 | [shell.h](https://www.google.com/search?q=shell.h) | Fichier d'en-tête contenant les prototypes et structures. |
 
+## Flowchart
+![Flowchart du Shell](./flowchartv2.png)
+
 ## Fonctions et appels système utilisés
 
 * `execve`, `fork`, `wait`, `stat`, `isatty`, `getline`, `strtok`, `malloc`, `free`, `fprintf`, `write`.
