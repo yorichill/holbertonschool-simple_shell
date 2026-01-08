@@ -1,5 +1,4 @@
-# This file lists all contributors to the repository.
-# For duplication, see: https://github.com/yorichill/holbertonschool-simple_shell.git
+# This file lists all individuals having contributed content to the repository.
+# For how it is generated, see `man 1 simple_shell` or your project instructions.
 
-Thomas Haenel <thomas.haenel101@gmail.com>
-Thelyaan Dufrenoy <thelyaan444@hotmail.com>
+Thomas <ton-email@holbertonschool.com>
