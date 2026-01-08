@@ -36,6 +36,12 @@ int main(int ac, char **av)
 		args = split_line(line);
 		if (args && args[0])
 		{
+			if (strcmp(args[0], "exit") == 0)
+			{
+				free(args);
+				free(line);
+        		exit(0); /* Quitte le shell proprement */
+			}
 			/* Appel de l'exécuteur avec le nom du programme pour les erreurs */
 			execute_command(args, av[0]);
 		}
