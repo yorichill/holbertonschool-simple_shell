@@ -14,6 +14,6 @@ extern char **environ;
 /* Prototypes */
 char **split_line(char *line);
 void execute_command(char **args, char *prog_name);
-char *get_path(char *command); /* Nouvelle fonction */
+char *get_path(char *command);
 
 #endif
