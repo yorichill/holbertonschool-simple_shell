@@ -1,28 +1,27 @@
 #include "shell.h"
 
 /**
- * main - Boucle principale du shell
- * @ac: Nombre d'arguments
- * @av: Tableau d'arguments
- * @env: Environnement
- * Return: 0
+ * main - Point d'entrée du shell simple
+ * @ac: Nombre d'arguments (non utilisé)
+ * @av: Vecteur d'arguments (av[0] est le nom du programme)
+ * Return: 0 en cas de succès
  */
-int main(int ac, char **av, char **env)
+int main(int ac, char **av)
 {
 	char *line = NULL;
 	size_t len = 0;
 	ssize_t nread;
 	char **args;
 	(void)ac;
-	(void)av;
 
 	while (1)
 	{
+		/* Affiche le prompt ($) uniquement en mode interactif */
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "($) ", 4);
 
 		nread = getline(&line, &len, stdin);
-		if (nread == -1)
+		if (nread == -1) /* Gestion de Ctrl+D (EOF) */
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
@@ -30,12 +29,16 @@ int main(int ac, char **av, char **env)
 			exit(EXIT_SUCCESS);
 		}
 
+		/* Suppression du saut de ligne final pour execve */
 		if (line[nread - 1] == '\n')
 			line[nread - 1] = '\0';
 
 		args = split_line(line);
 		if (args && args[0])
-			execute_command(args, env);
+		{
+			/* Appel de l'exécuteur avec le nom du programme pour les erreurs */
+			execute_command(args, av[0]);
+		}
 
 		free(args);
 	}

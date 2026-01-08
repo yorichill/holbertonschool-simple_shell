@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * split_line - Découpe une chaîne en jetons
+ * split_line - Découpe une chaîne en jetons (tokens)
  * @line: La chaîne à découper
  * Return: Tableau de pointeurs vers les jetons
  */
@@ -11,21 +11,17 @@ char **split_line(char *line)
 	int position = 0;
 	char **tokens;
 	char *token;
-	char *delimiters = " \t\r\n\a";
 
 	tokens = malloc(bufsize * sizeof(char *));
 	if (!tokens)
-	{
-		perror("Allocation error");
-		exit(EXIT_FAILURE);
-	}
+		return (NULL);
 
-	token = strtok(line, delimiters);
+	token = strtok(line, " \t\r\n\a");
 	while (token != NULL)
 	{
 		tokens[position] = token;
 		position++;
-		token = strtok(NULL, delimiters);
+		token = strtok(NULL, " \t\r\n\a");
 	}
 	tokens[position] = NULL;
 	return (tokens);

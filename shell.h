@@ -9,8 +9,11 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
-/* Prototypes */
+/* Accès à l'environnement système pour execve */
+extern char **environ;
+
+/* Prototypes des fonctions */
 char **split_line(char *line);
-void execute_command(char **args, char **env);
+void execute_command(char **args, char *prog_name);
 
 #endif
