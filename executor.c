@@ -11,12 +11,10 @@ void execute_command(char **args, char *prog_name)
 	int status;
 	char *full_path;
 
-	/* Recherche du chemin avant de créer un processus */
 	full_path = get_path(args[0]);
 
 	if (full_path == NULL)
 	{
-		/* Si non trouvé, erreur et PAS de fork */
 		fprintf(stderr, "%s: 1: %s: not found\n", prog_name, args[0]);
 		return;
 	}
