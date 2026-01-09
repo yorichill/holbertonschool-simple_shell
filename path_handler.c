@@ -44,3 +44,4 @@ char *get_path(char *command)
 	free(path_copy);
 	return (NULL);
 }
+
